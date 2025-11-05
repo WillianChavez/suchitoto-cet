@@ -64,11 +64,11 @@ export default function Home() {
       {/* Featured Products Section */}
       <section className="py-16 bg-white" id="featured">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">
+          <div className="text-center mb-8 sm:mb-12">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-3 sm:mb-4">
               Productos Destacados
             </h2>
-            <p className="text-gray-600 text-lg">
+            <p className="text-gray-600 text-base sm:text-lg px-2 sm:px-0">
               Nuestra selección de artesanías más populares
             </p>
           </div>
@@ -90,11 +90,11 @@ export default function Home() {
       {/* Categories Section */}
       <section className="py-16 bg-earth-50" id="products">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">
+          <div className="text-center mb-8 sm:mb-12">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-3 sm:mb-4">
               Explora por Categoría
             </h2>
-            <p className="text-gray-600 text-lg mb-8">
+            <p className="text-gray-600 text-base sm:text-lg mb-6 sm:mb-8 px-2 sm:px-0">
               Encuentra lo que buscas
             </p>
             <CategoryFilter 
@@ -117,15 +117,15 @@ export default function Home() {
           <div className="max-w-4xl mx-auto">
             <div className="grid md:grid-cols-2 gap-12 items-center">
               <div>
-                <h2 className="text-4xl font-bold text-gray-900 mb-6">
+                <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4 sm:mb-6">
                   Nuestra Historia
                 </h2>
-                <p className="text-gray-600 mb-4 text-lg leading-relaxed">
+                <p className="text-gray-600 mb-4 text-base sm:text-lg leading-relaxed">
                   Durante más de 20 años, el Centro Arte para la Paz ha sido un pilar fundamental 
                   en la comunidad de Suchitoto, promoviendo el arte, la cultura y la transformación 
                   social.
                 </p>
-                <p className="text-gray-600 mb-6 text-lg leading-relaxed">
+                <p className="text-gray-600 mb-6 text-base sm:text-lg leading-relaxed">
                   Nuestro e-commerce nace con la misión de ampliar nuestro alcance, conectando las 
                   hermosas artesanías de nuestros artesanos locales con personas alrededor del mundo.
                 </p>
@@ -148,16 +148,16 @@ export default function Home() {
       {/* Impact Section */}
       <section className="py-16 bg-primary-600 text-white">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold mb-4">
+          <div className="text-center mb-8 sm:mb-12">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-4">
               Nuestro Impacto
             </h2>
-            <p className="text-lg opacity-90">
+            <p className="text-base sm:text-lg opacity-90 px-2 sm:px-0">
               Apoyando a artesanos locales y preservando la cultura salvadoreña
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
             <div className="text-center bg-white/10 backdrop-blur-lg rounded-lg p-8">
               <div className="text-5xl mb-4">🎨</div>
               <h3 className="text-2xl font-bold mb-2">50+ Artesanos</h3>
@@ -190,11 +190,11 @@ export default function Home() {
       <section className="py-16 bg-earth-50" id="contact">
         <div className="container mx-auto px-4">
           <div className="max-w-2xl mx-auto">
-            <div className="text-center mb-12">
-              <h2 className="text-4xl font-bold text-gray-900 mb-4">
+            <div className="text-center mb-8 sm:mb-12">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-3 sm:mb-4">
                 Contáctanos
               </h2>
-              <p className="text-gray-600 text-lg">
+              <p className="text-gray-600 text-base sm:text-lg px-2 sm:px-0">
                 ¿Tienes alguna pregunta? Estamos aquí para ayudarte
               </p>
             </div>

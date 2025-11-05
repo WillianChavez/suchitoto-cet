@@ -52,7 +52,7 @@ export default function ProductDetail() {
               </div>
 
               {/* Additional Images */}
-              <div className="grid grid-cols-4 gap-4 mt-4">
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 mt-4">
                 {[1, 2, 3, 4].map((i) => (
                   <div key={i} className="aspect-square rounded-lg overflow-hidden border-2 border-gray-200 cursor-pointer hover:border-primary-500 transition-colors">
                     <img 
@@ -81,13 +81,13 @@ export default function ProductDetail() {
               </div>
 
               {/* Product Name */}
-              <h1 className="text-4xl font-bold text-gray-900 mb-4">
+              <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4">
                 {product.name}
               </h1>
 
               {/* Price */}
-              <div className="flex items-center space-x-4 mb-6">
-                <span className="text-4xl font-bold text-primary-600">
+              <div className="flex flex-col sm:flex-row sm:items-center sm:space-x-4 space-y-2 sm:space-y-0 mb-6">
+                <span className="text-3xl sm:text-4xl font-bold text-primary-600">
                   ${product.price.toFixed(2)}
                 </span>
                 {product.stock > 0 ? (
@@ -189,11 +189,11 @@ export default function ProductDetail() {
           </div>
 
           {/* Related Products */}
-          <div className="mt-20">
-            <h2 className="text-3xl font-bold text-center mb-12">
+          <div className="mt-12 sm:mt-20">
+            <h2 className="text-2xl sm:text-3xl font-bold text-center mb-8 sm:mb-12">
               Productos Relacionados
             </h2>
-            <div className="grid md:grid-cols-4 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
               {products
                 .filter(p => p.category === product.category && p.id !== product.id)
                 .slice(0, 4)

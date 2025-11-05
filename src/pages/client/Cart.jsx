@@ -73,29 +73,29 @@ export default function Cart() {
 
   return (
     <Layout>
-      <div className="bg-earth-50 py-12">
+      <div className="bg-earth-50 py-8 sm:py-12">
         <div className="container mx-auto px-4">
-          <h1 className="text-4xl font-bold text-gray-900 mb-8">Carrito de Compras</h1>
+          <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-6 sm:mb-8">Carrito de Compras</h1>
 
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid lg:grid-cols-3 gap-6 sm:gap-8">
             {/* Cart Items */}
-            <div className="md:col-span-2 space-y-4">
+            <div className="lg:col-span-2 space-y-4">
               {cartItems.map((item) => (
-                <div key={item.id} className="card p-6">
-                  <div className="flex items-center space-x-4">
+                <div key={item.id} className="card p-4 sm:p-6">
+                  <div className="flex flex-col sm:flex-row items-start sm:items-center space-y-4 sm:space-y-0 sm:space-x-4">
                     <img 
                       src={item.image} 
                       alt={item.name}
-                      className="w-24 h-24 object-cover rounded-lg"
+                      className="w-full sm:w-24 h-48 sm:h-24 object-cover rounded-lg"
                     />
-                    <div className="flex-grow">
-                      <h3 className="font-semibold text-gray-900">{item.name}</h3>
-                      <p className="text-sm text-gray-600">por {item.artisan}</p>
-                      <p className="text-primary-600 font-bold mt-2">
+                    <div className="flex-grow w-full sm:w-auto">
+                      <h3 className="font-semibold text-gray-900 text-sm sm:text-base">{item.name}</h3>
+                      <p className="text-xs sm:text-sm text-gray-600">por {item.artisan}</p>
+                      <p className="text-primary-600 font-bold mt-2 text-lg sm:text-xl">
                         ${item.price.toFixed(2)}
                       </p>
                     </div>
-                    <div className="flex items-center space-x-3">
+                    <div className="flex items-center space-x-3 w-full sm:w-auto justify-between sm:justify-start">
                       <div className="flex items-center space-x-2 border-2 border-gray-300 rounded-lg">
                         <button
                           onClick={() => updateQuantity(item.id, item.quantity - 1)}
@@ -113,7 +113,7 @@ export default function Cart() {
                       </div>
                       <button
                         onClick={() => removeFromCart(item.id)}
-                        className="text-red-600 hover:text-red-700"
+                        className="text-red-600 hover:text-red-700 flex-shrink-0"
                       >
                         <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
@@ -210,7 +210,7 @@ export default function Cart() {
                     {errors.address && <p className="text-red-500 text-xs mt-1">{errors.address}</p>}
                   </div>
 
-                  <div className="grid grid-cols-2 gap-4">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
                       <label className="block text-sm font-semibold text-gray-700 mb-2">
                         Ciudad *

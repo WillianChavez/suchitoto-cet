@@ -17,14 +17,14 @@ export default function Products() {
 
   return (
     <Layout>
-      <div className="bg-earth-50 py-12">
+      <div className="bg-earth-50 py-8 sm:py-12">
         <div className="container mx-auto px-4">
           {/* Header */}
-          <div className="text-center mb-12">
-            <h1 className="text-5xl font-bold text-gray-900 mb-4">
+          <div className="text-center mb-8 sm:mb-12">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-3 sm:mb-4">
               Nuestro Catálogo
             </h1>
-            <p className="text-gray-600 text-lg">
+            <p className="text-gray-600 text-base sm:text-lg px-2 sm:px-0">
               Descubre nuestras artesanías únicas
             </p>
           </div>
@@ -46,7 +46,7 @@ export default function Products() {
           </div>
 
           {/* Category Filter */}
-          <div className="flex justify-center mb-12">
+          <div className="flex justify-center mb-8 sm:mb-12 px-2 sm:px-0">
             <CategoryFilter 
               activeCategory={selectedCategory}
               onCategoryChange={setSelectedCategory}
@@ -54,8 +54,8 @@ export default function Products() {
           </div>
 
           {/* Results Count */}
-          <div className="text-center mb-6">
-            <p className="text-gray-600">
+          <div className="text-center mb-4 sm:mb-6">
+            <p className="text-sm sm:text-base text-gray-600">
               Mostrando <span className="font-bold text-primary-600">{filteredProducts.length}</span> productos
             </p>
           </div>
@@ -63,21 +63,21 @@ export default function Products() {
       </div>
 
       {/* Products Grid */}
-      <div className="py-16 bg-white">
+      <div className="py-12 sm:py-16 bg-white">
         <div className="container mx-auto px-4">
           {filteredProducts.length > 0 ? (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
               {filteredProducts.map((product) => (
                 <ProductCard key={product.id} product={product} />
               ))}
             </div>
           ) : (
-            <div className="text-center py-16">
-              <div className="text-6xl mb-4">🔍</div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-2">
+            <div className="text-center py-12 sm:py-16">
+              <div className="text-5xl sm:text-6xl mb-4">🔍</div>
+              <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-2">
                 No se encontraron productos
               </h3>
-              <p className="text-gray-600">
+              <p className="text-sm sm:text-base text-gray-600">
                 Intenta con otra búsqueda o categoría
               </p>
             </div>

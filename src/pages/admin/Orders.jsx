@@ -7,15 +7,15 @@ export default function Orders() {
     <AdminLayout>
       <div>
         {/* Header */}
-        <div className="flex items-center justify-between mb-8">
-          <h1 className="text-3xl font-bold text-gray-900">Gestión de Pedidos</h1>
-          <button className="btn-primary">
+        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-6 sm:mb-8">
+          <h1 className="text-2xl sm:text-3xl font-bold text-gray-900">Gestión de Pedidos</h1>
+          <button className="btn-primary w-full sm:w-auto text-sm sm:text-base">
             + Nuevo Pedido
           </button>
         </div>
 
         {/* Stats */}
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mb-6 sm:mb-8">
           <div className="card p-6">
             <div className="flex items-center justify-between">
               <div>

@@ -33,16 +33,16 @@ export default function Creators() {
   return (
     <section className="py-16 bg-white" id="creators">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold text-gray-900 mb-4">
+        <div className="text-center mb-8 sm:mb-12">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-3 sm:mb-4">
             Creadores
           </h2>
-          <p className="text-gray-600 text-lg">
+          <p className="text-gray-600 text-base sm:text-lg px-2 sm:px-0">
             Conoce al equipo detrás de este proyecto
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
           {creators.map((creator) => (
             <div 
               key={creator.id}
@@ -55,14 +55,14 @@ export default function Creators() {
                   className="w-full h-full object-cover"
                 />
               </div>
-              <div className="p-6">
-                <h3 className="text-lg font-bold text-gray-900 mb-2">
+              <div className="p-4 sm:p-6">
+                <h3 className="text-base sm:text-lg font-bold text-gray-900 mb-2 break-words">
                   {creator.name}
                 </h3>
-                <p className="text-sm text-gray-600 mb-2">
+                <p className="text-xs sm:text-sm text-gray-600 mb-2">
                   {creator.code}
                 </p>
-                <p className="text-sm font-semibold text-primary-600">
+                <p className="text-xs sm:text-sm font-semibold text-primary-600">
                   {creator.role}
                 </p>
               </div>

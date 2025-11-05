@@ -11,13 +11,13 @@ export default function Hero() {
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-3xl mx-auto text-center">
           {/* Main Heading */}
-          <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-4 sm:mb-6">
             Arte y Cultura de
             <span className="block text-primary-600 mt-2">Suchitoto</span>
           </h1>
 
           {/* Subtitle */}
-          <p className="text-xl text-gray-700 mb-8 leading-relaxed">
+          <p className="text-base sm:text-lg md:text-xl text-gray-700 mb-6 sm:mb-8 leading-relaxed px-2 sm:px-0">
             Descubre nuestras artesanías únicas, elaboradas por manos talentosas de la comunidad.
             Cada pieza cuenta una historia y apoya a los artesanos locales.
           </p>
@@ -33,18 +33,18 @@ export default function Hero() {
           </div>
 
           {/* Stats */}
-          <div className="grid grid-cols-3 gap-8 mt-12">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8 mt-12">
             <div>
-              <div className="text-3xl font-bold text-primary-600">20+</div>
-              <div className="text-sm text-gray-600 mt-1">Años de Experiencia</div>
+              <div className="text-2xl sm:text-3xl font-bold text-primary-600">20+</div>
+              <div className="text-xs sm:text-sm text-gray-600 mt-1">Años de Experiencia</div>
             </div>
             <div>
-              <div className="text-3xl font-bold text-primary-600">50+</div>
-              <div className="text-sm text-gray-600 mt-1">Artesanos Locales</div>
+              <div className="text-2xl sm:text-3xl font-bold text-primary-600">50+</div>
+              <div className="text-xs sm:text-sm text-gray-600 mt-1">Artesanos Locales</div>
             </div>
             <div>
-              <div className="text-3xl font-bold text-primary-600">500+</div>
-              <div className="text-sm text-gray-600 mt-1">Productos Únicos</div>
+              <div className="text-2xl sm:text-3xl font-bold text-primary-600">500+</div>
+              <div className="text-xs sm:text-sm text-gray-600 mt-1">Productos Únicos</div>
             </div>
           </div>
         </div>

@@ -57,13 +57,13 @@ export default function Footer() {
             <p className="text-gray-300 text-sm mb-4">
               Suscríbete para recibir noticias sobre nuevos productos y eventos.
             </p>
-            <div className="flex">
+            <div className="flex flex-col sm:flex-row">
               <input 
                 type="email" 
                 placeholder="tu@email.com" 
-                className="flex-1 px-4 py-2 rounded-l-lg text-gray-900 text-sm focus:outline-none focus:ring-2 focus:ring-primary-500"
+                className="flex-1 px-4 py-2 sm:rounded-l-lg sm:rounded-r-none rounded-lg mb-2 sm:mb-0 text-gray-900 text-sm focus:outline-none focus:ring-2 focus:ring-primary-500"
               />
-              <button className="bg-primary-600 hover:bg-primary-700 px-4 py-2 rounded-r-lg transition-colors">
+              <button className="bg-primary-600 hover:bg-primary-700 px-4 py-2 sm:rounded-r-lg sm:rounded-l-none rounded-lg transition-colors flex items-center justify-center">
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
                 </svg>

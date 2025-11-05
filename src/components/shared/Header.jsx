@@ -1,10 +1,12 @@
 import { Link, useLocation } from 'react-router-dom';
 import { useCart } from '../../context/CartContext';
+import { useState } from 'react';
 
 export default function Header() {
   const { getCartCount } = useCart();
   const cartCount = getCartCount();
   const location = useLocation();
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const handleSmoothScroll = (e, targetId) => {
     e.preventDefault();
@@ -50,9 +52,12 @@ export default function Header() {
             <div className="w-10 h-10 bg-primary-600 rounded-lg flex items-center justify-center">
               <span className="text-white text-xl font-bold">CAP</span>
             </div>
-            <div>
+            <div className="hidden sm:block">
               <h1 className="text-xl font-bold text-gray-800">Centro Arte para la Paz</h1>
               <p className="text-xs text-gray-600">Artesanías de Suchitoto</p>
+            </div>
+            <div className="sm:hidden">
+              <h1 className="text-sm font-bold text-gray-800">CAP</h1>
             </div>
           </div>
 
@@ -103,50 +108,77 @@ export default function Header() {
             </Link>
             
             {/* Mobile Menu Button */}
-            <button className="md:hidden text-gray-700 hover:text-primary-600">
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-              </svg>
+            <button 
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              className="md:hidden text-gray-700 hover:text-primary-600"
+            >
+              {mobileMenuOpen ? (
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              ) : (
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+              )}
             </button>
           </div>
         </div>
 
         {/* Mobile Menu */}
-        <div className="md:hidden mt-4 pt-4 border-t border-gray-200">
-          <div className="flex flex-col space-y-3">
+        {mobileMenuOpen && (
+          <div className="md:hidden mt-4 pt-4 border-t border-gray-200">
+            <div className="flex flex-col space-y-3">
             <Link 
               to="/" 
-              onClick={handleHomeClick}
+              onClick={(e) => {
+                handleHomeClick(e);
+                setMobileMenuOpen(false);
+              }}
               className="text-gray-700 hover:text-primary-600 transition-colors"
             >
               Inicio
             </Link>
-            <Link to="/products" className="text-gray-700 hover:text-primary-600 transition-colors">
+            <Link 
+              to="/products" 
+              onClick={() => setMobileMenuOpen(false)}
+              className="text-gray-700 hover:text-primary-600 transition-colors"
+            >
               Productos
             </Link>
             <a 
               href="/#about" 
-              onClick={(e) => handleSmoothScroll(e, 'about')}
+              onClick={(e) => {
+                handleSmoothScroll(e, 'about');
+                setMobileMenuOpen(false);
+              }}
               className="text-gray-700 hover:text-primary-600 transition-colors"
             >
               Nosotros
             </a>
             <a 
               href="/#creators" 
-              onClick={(e) => handleSmoothScroll(e, 'creators')}
+              onClick={(e) => {
+                handleSmoothScroll(e, 'creators');
+                setMobileMenuOpen(false);
+              }}
               className="text-gray-700 hover:text-primary-600 transition-colors"
             >
               Creadores
             </a>
             <a 
               href="/#contact" 
-              onClick={(e) => handleSmoothScroll(e, 'contact')}
+              onClick={(e) => {
+                handleSmoothScroll(e, 'contact');
+                setMobileMenuOpen(false);
+              }}
               className="text-gray-700 hover:text-primary-600 transition-colors"
             >
               Contacto
             </a>
           </div>
         </div>
+        )}
       </nav>
     </header>
   );
