@@ -1,4 +1,21 @@
+import { Link } from 'react-router-dom';
+
 export default function Hero() {
+  const handleScrollToAbout = (e) => {
+    e.preventDefault();
+    const element = document.getElementById('about');
+    if (element) {
+      const headerOffset = 80;
+      const elementPosition = element.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
+    }
+  };
+
   return (
     <section className="relative bg-gradient-to-br from-primary-50 via-earth-50 to-primary-100 py-20 overflow-hidden">
       {/* Background Pattern */}
@@ -24,12 +41,16 @@ export default function Hero() {
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">
-            <button className="btn-primary text-lg px-8">
+            <Link to="/products" className="btn-primary text-lg px-8 inline-block text-center">
               Explorar Productos
-            </button>
-            <button className="btn-secondary text-lg px-8">
+            </Link>
+            <a 
+              href="#about" 
+              onClick={handleScrollToAbout}
+              className="btn-secondary text-lg px-8 inline-block text-center"
+            >
               Conocer Nuestra Historia
-            </button>
+            </a>
           </div>
 
           {/* Stats */}
