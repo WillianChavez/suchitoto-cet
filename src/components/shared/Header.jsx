@@ -1,9 +1,45 @@
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { useCart } from '../../context/CartContext';
 
 export default function Header() {
   const { getCartCount } = useCart();
   const cartCount = getCartCount();
+  const location = useLocation();
+
+  const handleSmoothScroll = (e, targetId) => {
+    e.preventDefault();
+    if (location.pathname !== '/') {
+      // Si no estamos en la página principal, navegar primero
+      window.location.href = `/#${targetId}`;
+      return;
+    }
+
+    // Pequeño delay para asegurar que el DOM esté listo
+    setTimeout(() => {
+      const element = document.getElementById(targetId);
+      if (element) {
+        const headerOffset = 80;
+        const elementPosition = element.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: 'smooth'
+        });
+      }
+    }, 10);
+  };
+
+  const handleHomeClick = (e) => {
+    if (location.pathname !== '/') {
+      return; // Dejar que Link maneje la navegación
+    }
+    e.preventDefault();
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  };
 
   return (
     <header className="bg-white shadow-md sticky top-0 z-50">
@@ -22,25 +58,34 @@ export default function Header() {
 
           {/* Navigation */}
           <div className="hidden md:flex items-center space-x-8">
-            <Link to="/" className="text-gray-700 hover:text-primary-600 transition-colors">
+            <Link 
+              to="/" 
+              onClick={handleHomeClick}
+              className="text-gray-700 hover:text-primary-600 transition-colors"
+            >
               Inicio
             </Link>
             <Link to="/products" className="text-gray-700 hover:text-primary-600 transition-colors">
               Productos
             </Link>
-            <a href="/#about" className="text-gray-700 hover:text-primary-600 transition-colors">
+            <a 
+              href="/#about" 
+              onClick={(e) => handleSmoothScroll(e, 'about')}
+              className="text-gray-700 hover:text-primary-600 transition-colors"
+            >
               Nosotros
             </a>
-            <a href="/#contact" className="text-gray-700 hover:text-primary-600 transition-colors">
+            <a 
+              href="/#contact" 
+              onClick={(e) => handleSmoothScroll(e, 'contact')}
+              className="text-gray-700 hover:text-primary-600 transition-colors"
+            >
               Contacto
             </a>
           </div>
 
           {/* CTA Buttons */}
           <div className="flex items-center space-x-4">
-            <button className="hidden md:block btn-secondary text-sm">
-              Iniciar Sesión
-            </button>
             <Link to="/cart" className="btn-primary text-sm relative">
               Carrito
               {cartCount > 0 && (
@@ -62,21 +107,30 @@ export default function Header() {
         {/* Mobile Menu */}
         <div className="md:hidden mt-4 pt-4 border-t border-gray-200">
           <div className="flex flex-col space-y-3">
-            <Link to="/" className="text-gray-700 hover:text-primary-600 transition-colors">
+            <Link 
+              to="/" 
+              onClick={handleHomeClick}
+              className="text-gray-700 hover:text-primary-600 transition-colors"
+            >
               Inicio
             </Link>
             <Link to="/products" className="text-gray-700 hover:text-primary-600 transition-colors">
               Productos
             </Link>
-            <a href="/#about" className="text-gray-700 hover:text-primary-600 transition-colors">
+            <a 
+              href="/#about" 
+              onClick={(e) => handleSmoothScroll(e, 'about')}
+              className="text-gray-700 hover:text-primary-600 transition-colors"
+            >
               Nosotros
             </a>
-            <a href="/#contact" className="text-gray-700 hover:text-primary-600 transition-colors">
+            <a 
+              href="/#contact" 
+              onClick={(e) => handleSmoothScroll(e, 'contact')}
+              className="text-gray-700 hover:text-primary-600 transition-colors"
+            >
               Contacto
             </a>
-            <button className="btn-secondary text-sm w-full">
-              Iniciar Sesión
-            </button>
           </div>
         </div>
       </nav>

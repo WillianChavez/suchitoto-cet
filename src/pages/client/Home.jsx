@@ -2,16 +2,58 @@ import Layout from '../../components/shared/Layout';
 import Hero from '../../components/client/Hero';
 import ProductCard from '../../components/client/ProductCard';
 import CategoryFilter from '../../components/client/CategoryFilter';
-import { useState } from 'react';
+import Creators from '../../components/client/Creators';
+import { useState, useEffect } from 'react';
 import { products } from '../../data/products';
 
 export default function Home() {
   const [selectedCategory, setSelectedCategory] = useState('all');
+  const [contactForm, setContactForm] = useState({
+    email: '',
+    message: ''
+  });
+  const [formSubmitted, setFormSubmitted] = useState(false);
   const featuredProducts = products.filter(p => p.featured);
 
   const filteredProducts = selectedCategory === 'all'
     ? products
     : products.filter(p => p.category === selectedCategory);
+
+  const handleContactSubmit = (e) => {
+    e.preventDefault();
+    if (contactForm.email.trim() && contactForm.message.trim()) {
+      setFormSubmitted(true);
+      setContactForm({ email: '', message: '' });
+      setTimeout(() => {
+        setFormSubmitted(false);
+      }, 3000);
+    }
+  };
+
+  const handleContactChange = (e) => {
+    const { name, value } = e.target;
+    setContactForm(prev => ({
+      ...prev,
+      [name]: value
+    }));
+  };
+
+  useEffect(() => {
+    // Manejar scroll cuando se carga la página con hash
+    const hash = window.location.hash;
+    if (hash) {
+      const targetId = hash.substring(1);
+      setTimeout(() => {
+        const element = document.getElementById(targetId);
+        if (element) {
+          element.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      }, 100);
+    }
+  }, []);
 
   return (
     <Layout>
@@ -135,6 +177,80 @@ export default function Home() {
               <p className="opacity-90">
                 Precios justos que benefician a la comunidad
               </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Creators Section */}
+      <Creators />
+
+      {/* Contact Section */}
+      <section className="py-16 bg-earth-50" id="contact">
+        <div className="container mx-auto px-4">
+          <div className="max-w-2xl mx-auto">
+            <div className="text-center mb-12">
+              <h2 className="text-4xl font-bold text-gray-900 mb-4">
+                Contáctanos
+              </h2>
+              <p className="text-gray-600 text-lg">
+                ¿Tienes alguna pregunta? Estamos aquí para ayudarte
+              </p>
+            </div>
+
+            <div className="bg-white rounded-lg shadow-lg p-8">
+              {formSubmitted ? (
+                <div className="text-center py-8">
+                  <div className="text-6xl mb-4">✓</div>
+                  <h3 className="text-2xl font-bold text-green-600 mb-2">
+                    ¡Mensaje Enviado!
+                  </h3>
+                  <p className="text-gray-600">
+                    Te responderemos pronto
+                  </p>
+                </div>
+              ) : (
+                <form onSubmit={handleContactSubmit} className="space-y-6">
+                  <div>
+                    <label htmlFor="email" className="block text-sm font-semibold text-gray-700 mb-2">
+                      Email *
+                    </label>
+                    <input
+                      type="email"
+                      id="email"
+                      name="email"
+                      value={contactForm.email}
+                      onChange={handleContactChange}
+                      required
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+                      placeholder="tu@email.com"
+                    />
+                  </div>
+
+                  <div>
+                    <label htmlFor="message" className="block text-sm font-semibold text-gray-700 mb-2">
+                      Mensaje *
+                    </label>
+                    <textarea
+                      id="message"
+                      name="message"
+                      value={contactForm.message}
+                      onChange={handleContactChange}
+                      required
+                      rows="6"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent resize-none"
+                      placeholder="Escribe tu mensaje aquí..."
+                    />
+                  </div>
+
+                  <button
+                    type="submit"
+                    className="btn-primary w-full text-lg py-3"
+                  >
+                    Enviar Mensaje
+                  </button>
+                </form>
+              )}
             </div>
           </div>
         </div>
