@@ -76,6 +76,13 @@ export default function Header() {
               Nosotros
             </a>
             <a 
+              href="/#creators" 
+              onClick={(e) => handleSmoothScroll(e, 'creators')}
+              className="text-gray-700 hover:text-primary-600 transition-colors"
+            >
+              Creadores
+            </a>
+            <a 
               href="/#contact" 
               onClick={(e) => handleSmoothScroll(e, 'contact')}
               className="text-gray-700 hover:text-primary-600 transition-colors"
@@ -123,6 +130,13 @@ export default function Header() {
               className="text-gray-700 hover:text-primary-600 transition-colors"
             >
               Nosotros
+            </a>
+            <a 
+              href="/#creators" 
+              onClick={(e) => handleSmoothScroll(e, 'creators')}
+              className="text-gray-700 hover:text-primary-600 transition-colors"
+            >
+              Creadores
             </a>
             <a 
               href="/#contact" 

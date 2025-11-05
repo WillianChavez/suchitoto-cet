@@ -4,7 +4,7 @@ export default function Creators() {
       id: 1,
       name: 'MANUEL DE JESUS TOBAR LEIVA',
       code: 'TL21001',
-      image: '/integrantes/1.jpg',
+      image: '/integrantes/3.jpg',
       role: 'Desarrollador'
     },
     {
@@ -18,7 +18,7 @@ export default function Creators() {
       id: 3,
       name: 'HERNANDEZ ROMERO, JOSE MANUEL',
       code: 'HR22004',
-      image: '/integrantes/3.jpg',
+      image: '/integrantes/1.jpg',
       role: 'Desarrollador'
     },
     {

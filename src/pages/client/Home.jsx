@@ -3,6 +3,7 @@ import Hero from '../../components/client/Hero';
 import ProductCard from '../../components/client/ProductCard';
 import CategoryFilter from '../../components/client/CategoryFilter';
 import Creators from '../../components/client/Creators';
+import { Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { products } from '../../data/products';
 
@@ -79,9 +80,9 @@ export default function Home() {
           </div>
 
           <div className="text-center mt-12">
-            <button className="btn-primary">
+            <Link to="/products" className="btn-primary inline-block">
               Ver Todos los Productos
-            </button>
+            </Link>
           </div>
         </div>
       </section>
